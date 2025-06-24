@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.jsx
+import React, { useState } from 'react';
+import Layout from './components/layout/Layout';
+import Home from './pages/Home';
+import MateriaPrima from './pages/MateriaPrima';
+import Estoque from './pages/Estoque';
+import Fornecedores from './pages/Fornecedores';
+import Produtos from './pages/Produtos';
+import PedidosCompra from './pages/PedidosCompra';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentPage, setCurrentPage] = useState('home');
+
+  const handleNavigate = (page) => {
+    setCurrentPage(page);
+  };
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'home':
+        return <Home onNavigate={handleNavigate} />;
+      case 'materias-primas':
+        return <MateriaPrima />;
+      case 'estoque':
+        return <Estoque />;
+      case 'fornecedores':
+        return <Fornecedores />;
+      case 'produtos':
+        return <Produtos />;
+      case 'pedidos':
+        return <PedidosCompra />;
+      default:
+        return <Home onNavigate={handleNavigate} />;
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Layout currentPage={currentPage} onNavigate={handleNavigate}>
+      {renderPage()}
+    </Layout>
+  );
 }
 
-export default App
+export default App;
