@@ -1,16 +1,16 @@
 // src/constants/index.js
 
 export const CATEGORIAS_MATERIA_PRIMA = [
-    'Química',
-    'Plástica',
-    'Metálica',
-    'Orgânica',
-    'Têxtil',
-    'Eletrônica',
-    'Alimentícia',
-    'Farmacêutica',
-    'Cosmética',
-    'Automotiva'
+    'quimica',
+    'plastica',
+    'metalica',
+    'organica',
+    'textil',
+    'eletronica',
+    'alimenticia',
+    'farmaceutica',
+    'cosmetica',
+    'automotiva'
 ];
 
 export const UNIDADES_MEDIDA = [
@@ -33,7 +33,7 @@ export const UNIDADES_MEDIDA = [
 
 export const STATUS_ESTOQUE = {
     NORMAL: 'NORMAL',
-    CRITICO: 'CRÍTICO',
+    CRITICO: 'CRITICO',
     ZERADO: 'ZERADO'
 };
 
